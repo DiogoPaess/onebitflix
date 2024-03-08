@@ -5,8 +5,8 @@ export const sequelize = new Sequelize({
   host: "localhost",
   port: 5432,
   database: "onebitflix_development",
-  username: "docker",
-  password: "docker",
+  username: "onebitflixweb",
+  password: "onebitflix",
   define: {
     underscored: true,
   },
