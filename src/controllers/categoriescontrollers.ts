@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { categoryService } from "../services/categoryservice";
 import { getPaginationParams } from "../helpers/getPaginationParams";
-import { buildActionClickHandler } from "adminjs";
 
 export const categoriesController = {
   index: async (req: Request, res: Response) => {

@@ -21,6 +21,7 @@ export const courseService = {
     });
     return courseWithEpisodes;
   },
+
   getRandomFeaturedCourses: async () => {
     const featuredCourses = await Course.findAll({
       attributes: ["id", "name", "synopsis", ["thumbnail_url", "thumbnailUrl"]],
@@ -33,6 +34,7 @@ export const courseService = {
     );
     return randomFeaturedCourses.slice(0, 3);
   },
+
   getTopTenNewest: async () => {
     const courses = await Course.findAll({
       limit: 10,
@@ -40,6 +42,7 @@ export const courseService = {
     });
     return courses;
   },
+
   findByName: async (name: string, page: number, perPage: number) => {
     const offset = (page - 1) * perPage;
 
