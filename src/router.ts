@@ -4,6 +4,7 @@ import { coursesController } from "./controllers/coursescontroller";
 import { episodesController } from "./controllers/episodescontroller";
 import { authController } from "./controllers/authcontroller";
 import { ensureAuth, ensureAuthViaQuery } from "./middlewares/auth";
+import { favoritesController } from "./controllers/favoritescontroller";
 
 const router = express.Router();
 
@@ -20,4 +21,5 @@ router.get("./courses/:id", ensureAuth, coursesController.show);
 
 router.get("./episodes/stream", ensureAuthViaQuery, episodesController.stream);
 
+router.get("./favorites", ensureAuth, favoritesController.save);
 export { router };
