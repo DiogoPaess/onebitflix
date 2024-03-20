@@ -9,25 +9,36 @@ import { likesController } from "./controllers/likecontroller";
 
 const router = express.Router();
 
-router.post("./auth/register", authController.register);
-router.post("./auth/login", authController.login);
+router.post("/auth/register", authController.register);
+router.post("/auth/login", authController.login);
 
 router.get("/categories", ensureAuth, categoriesController.index);
-router.get("./category/:id", ensureAuth, categoriesController.show);
+router.get("/category/:id", ensureAuth, categoriesController.show);
 
-router.get("./courses/featured", ensureAuth, coursesController.featured);
-router.get("./courses/newest", coursesController.newest);
-router.get("./courses/popular", ensureAuth, coursesController.popular);
-router.get("./courses/search", ensureAuth, coursesController.search);
-router.get("./courses/:id", ensureAuth, coursesController.show);
+router.get("/courses/featured", ensureAuth, coursesController.featured);
+router.get("/courses/newest", coursesController.newest);
+router.get("/courses/popular", ensureAuth, coursesController.popular);
+router.get("/courses/search", ensureAuth, coursesController.search);
+router.get("/courses/:id", ensureAuth, coursesController.show);
 
-router.get("./episodes/stream", ensureAuthViaQuery, episodesController.stream);
+router.get("/episodes/stream", ensureAuthViaQuery, episodesController.stream);
 
-router.get("./favorites", ensureAuth, favoritesController.index);
-router.get("./favorites", ensureAuth, favoritesController.save);
-router.delete("./favorites/:id", ensureAuth, favoritesController.delete);
+router.get(
+  "/episodes/:id/watchtime",
+  ensureAuth,
+  episodesController.getWatchTime
+);
+router.get(
+  "/episodes/:id/watchtime",
+  ensureAuth,
+  episodesController.setWatchTime
+);
 
-router.get("./likes", ensureAuth, likesController.save);
-router.delete("./likes/:id", ensureAuth, likesController.delete);
+router.get("/favorites", ensureAuth, favoritesController.index);
+router.get("/favorites", ensureAuth, favoritesController.save);
+router.delete("/favorites/:id", ensureAuth, favoritesController.delete);
+
+router.get("/likes", ensureAuth, likesController.save);
+router.delete("/likes/:id", ensureAuth, likesController.delete);
 
 export { router };
