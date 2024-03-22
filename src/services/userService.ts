@@ -61,6 +61,18 @@ export const userService = {
     return updateUsers[0];
   },
 
+  updadePassword: async (id: number, password: string) => {
+    const [affectedRows, updateUsers] = await User.update(
+      { password },
+      {
+        where: { id },
+        returning: true,
+        individualHooks: true,
+      }
+    );
+    return updateUsers[0];
+  },
+
   getKeepWatchingList: async (id: number) => {
     const userWithWatchingEpisodes = await User.findByPk(id, {
       include: {

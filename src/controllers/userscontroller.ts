@@ -34,6 +34,26 @@ export const usersController = {
     }
   },
 
+  updatePassword: async (req: AuthenticadedRequest, res: Response) => {
+    const user = req.user!;
+    const { currendPassword, newPassword } = req.body;
+
+    user.checkpassword(currendPassword, async (err, isSame) => {
+      try {
+        if (err) return res.status(400).json({ message: err.message });
+        if (!isSame)
+          return res.status(400).json({ message: "Verification error" });
+
+        await userService.updadePassword(user.id, newPassword);
+        return res.status(204).send();
+      } catch (err) {
+        if (err instanceof Error) {
+          return res.status(400).json({ message: err.message });
+        }
+      }
+    });
+  },
+
   watching: async (req: AuthenticadedRequest, res: Response) => {
     const { id } = req.user!;
 
