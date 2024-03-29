@@ -4,7 +4,7 @@ import { Episode } from "./Episode";
 import { Favorite } from "./Favorites";
 import { User } from "./User";
 import { Like } from "./Likes";
-import { WatchTime } from "./Watchtime";
+import { WatchTime } from "./WatchTime";
 
 Category.hasMany(Course, { as: "courses" });
 

@@ -1,7 +1,7 @@
 import { Response } from "express";
 import path from "path";
 import fs from "fs";
-import { WatchTimeAttributes } from "../models/Watchtime";
+import { WatchTimeAttributes } from "../models/WatchTime";
 import { WatchTime } from "../models";
 
 export const episodeService = {
