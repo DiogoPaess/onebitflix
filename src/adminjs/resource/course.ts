@@ -40,7 +40,7 @@ export const courseResourceFeatures: FeatureType[] = [
       },
     },
     properties: {
-      key: "thumbenailUrl",
+      key: "thumbnailUrl",
       file: "uploadThumbnail",
     },
     uploadPath: (record, filename) =>
