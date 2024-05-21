@@ -10,14 +10,7 @@ export const episodeService = {
     videoUrl: string,
     range: string | undefined
   ) => {
-    const filePath = path.join(
-      __dirname,
-      "..",
-      "..",
-      "..",
-      "uploads",
-      videoUrl
-    );
+    const filePath = path.join(__dirname, "..", "..", "uploads", videoUrl);
     const fileStat = fs.statSync(filePath);
 
     if (range) {

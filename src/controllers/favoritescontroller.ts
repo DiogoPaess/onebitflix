@@ -7,7 +7,7 @@ export const favoritesController = {
     const userId = req.user!.id;
 
     try {
-      const favorites = favoriteService.findByUserId(userId);
+      const favorites = await favoriteService.findByUserId(userId);
       return res.json(favorites);
     } catch (err) {
       if (err instanceof Error) {

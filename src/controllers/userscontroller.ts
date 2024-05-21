@@ -26,6 +26,7 @@ export const usersController = {
         email,
         birth,
       });
+
       return res.json(updatedUser);
     } catch (err) {
       if (err instanceof Error) {
@@ -36,9 +37,9 @@ export const usersController = {
 
   updatePassword: async (req: AuthenticadedRequest, res: Response) => {
     const user = req.user!;
-    const { currendPassword, newPassword } = req.body;
+    const { currentPassword, newPassword } = req.body;
 
-    user.checkpassword(currendPassword, async (err, isSame) => {
+    user.checkPassword(currentPassword, async (err, isSame) => {
       try {
         if (err) return res.status(400).json({ message: err.message });
         if (!isSame)

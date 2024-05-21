@@ -39,7 +39,7 @@ export const authController = {
         return res.status(404).json({ mensage: "E-mail not registred" });
       }
 
-      user.checkpassword(password, (err, isSame) => {
+      user.checkPassword(password, (err, isSame) => {
         if (err) return res.status(400).json({ message: err.message });
         if (!isSame)
           return res.status(401).json({ message: "Incorrect password" });

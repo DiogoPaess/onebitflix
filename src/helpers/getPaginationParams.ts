@@ -11,5 +11,5 @@ export function getPaginationParams(
   const pageNumber =
     typeof page === "string" && parseInt(page, 10) > 0 ? parseInt(page, 10) : 1;
 
-  return [page, perPage];
+  return [pageNumber, perPageNumber];
 }

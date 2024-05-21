@@ -13,7 +13,7 @@ export const courseService = {
           "synopsis",
           "order",
           ["video_url", "videoUrl"],
-          ["seconds_long", "secondslong"],
+          ["seconds_long", "secondsLong"],
         ],
         order: [["order", "ASC"]],
         separate: true,
@@ -38,7 +38,7 @@ export const courseService = {
   getTopTenNewest: async () => {
     const courses = await Course.findAll({
       limit: 10,
-      order: [["create_at", "DESC"]],
+      order: [["created_at", "DESC"]],
     });
     return courses;
   },
@@ -53,7 +53,7 @@ export const courseService = {
           COUNT(users.id) AS likes
         FROM courses
             LEFT OUTER JOIN likes
-            ON courses.id = likes.courses_id
+            ON courses.id = likes.course_id
             INNER JOIN users
                 ON users.id = likes.user_id
         GROUP BY courses.id
@@ -76,7 +76,7 @@ export const courseService = {
       attributes: ["id", "name", "synopsis", ["thumbnail_url", "thumbnailUrl"]],
       where: {
         name: {
-          [Op.iLike]: `%${name}`,
+          [Op.iLike]: `%${name}%`,
         },
       },
       limit: perPage,

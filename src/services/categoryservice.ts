@@ -11,7 +11,7 @@ export const categoryService = {
       offset,
     });
     return {
-      category: rows,
+      categories: rows,
       page,
       perPage,
       total: count,
@@ -26,7 +26,7 @@ export const categoryService = {
         attributes: [
           "id",
           "name",
-          "synopses",
+          "synopsis",
           ["thumbnail_url", "thumbnailUrl"],
         ],
       },

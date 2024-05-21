@@ -15,5 +15,5 @@ export const authenticationOptions: AuthenticationOptions = {
     }
     return false;
   },
-  cookiePassword: "senhe-de-cookie",
+  cookiePassword: "senha-de-cookie",
 };
